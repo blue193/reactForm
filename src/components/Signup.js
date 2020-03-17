@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Modal, ModalHeader, ModalFooter, Container, Row, Col } from 'reactstrap';
-import { InputGroup, InputGroupAddon, InputGroupText, Input} from 'reactstrap';
+import { InputGroup, InputGroupAddon, InputGroupText} from 'reactstrap';
 import { AvForm, AvField } from 'availity-reactstrap-validation';
 export default class Example extends React.Component {
 
