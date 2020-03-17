@@ -42,7 +42,7 @@ export default class Example extends React.Component {
                     <AvForm onValidSubmit={this.handleValidSubmit1} name="vendor" ref={(el) => this.myFormRef1 = el}>
                         <AvField name="email1" label="Email Address" type="email" value={this.state.fields1["email1"]} onChange={this.handleChange.bind(this, "email1")} required />
                         <AvField name="companyName" label="Company Name" type="text" value={this.state.fields1["companyName"]} onChange={this.handleChange.bind(this, "companyName")} required/>
-                        <AvField name="productName" label="Product Name" type="text" value={this.state.fields1["productName"]} onChange={this.handleChange.bind(this, "productName")} required/>
+                        <AvField name="productName" label="Product Name" type="text" pattern="[A-Za-z0-9]" value={this.state.fields1["productName"]} onChange={this.handleChange.bind(this, "productName")} required/>
                         <label name="productPriceLabel" className="productPriceLabel">Product Price</label>
                         <InputGroup>
                             <InputGroupAddon addonType="prepend">
@@ -277,7 +277,7 @@ handleValidation1(){
     }
 
     if(typeof fields1["productName"] !== "undefined"){
-        if(!fields1["productName"].match(/^[a-zA-Z0-9!@#\$%\^\&*\)\(+=._-]+$/g)){
+        if(!fields1["productName"].match(/^[0-9a-zA-Z]+$/)){
         formIsValid1 = false;
         errors1["productName"] = "Only letters";
         }        
