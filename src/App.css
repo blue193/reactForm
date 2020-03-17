@@ -100,3 +100,8 @@ body {
 .product-quantity {
   border-left: none;
 }
+
+.input-group > .form-group {
+  height: 20px;
+  width: 92%;
+}

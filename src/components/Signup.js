@@ -48,7 +48,8 @@ export default class Example extends React.Component {
                             <InputGroupAddon addonType="prepend">
                             <InputGroupText>$</InputGroupText>
                             </InputGroupAddon>
-                            <Input name="productPrice" className="product-price" id="productPrice" value={this.state.fields1["productPrice"]} onChange={this.handleChange.bind(this, "productPrice")} required/>
+                            <AvField name="productPrice" className="product-price" id="productPrice" value={this.state.fields1["productPrice"]} onChange={this.handleChange.bind(this, "productPrice")} required/>
+                            
                         </InputGroup>
                         <AvField name="productQuantity" label="Product Quantity" type="text" value={this.state.fields1["productQuantity"]} onChange={this.handleChange.bind(this, "productQuantity")} required/>
                         <Button color="c-black" className="float-r">Submit</Button>
@@ -147,6 +148,7 @@ export default class Example extends React.Component {
             }
         })
     } else {
+        console.log(this.state.errors1)
         this.setState({validSubmit1: false})
     }
     
@@ -276,7 +278,7 @@ handleValidation1(){
     }
 
     if(typeof fields1["productName"] !== "undefined"){
-        if(!fields1["productName"].match(/^[a-zA-Z0-9]*$/)){
+        if(!fields1["productName"].match(/^[a-zA-Z0-9!@#\$%\^\&*\)\(+=._-]+$/g)){
         formIsValid1 = false;
         errors1["productName"] = "Only letters";
         }        
@@ -291,7 +293,7 @@ handleValidation1(){
     if(typeof fields1["productPrice"] !== "undefined"){
         if(!fields1["productPrice"].match(/^(?=.+)(?:[1-9]\d*|0)?(?:\.\d+)?$/)){
         formIsValid1= false;
-        errors1["productPrice"] = "Only letters";
+        errors1["productPrice"] = "Only numbers";
         }        
     }
 
@@ -302,9 +304,9 @@ handleValidation1(){
     }
 
     if(typeof fields1["productQuantity"] !== "undefined"){
-        if(!fields1["productQuantity"].match(/^\d*[1-9]\d*$/)){
+        if(!fields1["productQuantity"].match(/^(?=.+)(?:[1-9]\d*|0)?(?:\.\d+)?$/)){
         formIsValid1 = false;
-        errors1["productQuantity"] = "Only letters";
+        errors1["productQuantity"] = "Only numbers";
         }        
     }
     
