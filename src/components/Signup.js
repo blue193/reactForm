@@ -48,10 +48,9 @@ export default class Example extends React.Component {
                             <InputGroupAddon addonType="prepend">
                             <InputGroupText>$</InputGroupText>
                             </InputGroupAddon>
-                            <AvField name="productPrice" className="product-price" id="productPrice" value={this.state.fields1["productPrice"]} onChange={this.handleChange.bind(this, "productPrice")} required/>
-                            
+                            <AvField name="productPrice" className="product-price" type="number" min="0" id="productPrice" value={this.state.fields1["productPrice"]} onChange={this.handleChange.bind(this, "productPrice")} required/>
                         </InputGroup>
-                        <AvField name="productQuantity" label="Product Quantity" type="text" value={this.state.fields1["productQuantity"]} onChange={this.handleChange.bind(this, "productQuantity")} required/>
+                        <AvField name="productQuantity" label="Product Quantity" type="number" min="0" value={this.state.fields1["productQuantity"]} onChange={this.handleChange.bind(this, "productQuantity")} required/>
                         <Button color="c-black" className="float-r">Submit</Button>
                     </AvForm>
                 )}
